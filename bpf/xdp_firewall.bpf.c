@@ -48,7 +48,7 @@ int  xdp_parser_func(struct xdp_md *ctx)
         return XDP_PASS;
 
     // If the destination IP address of the packet matches the specified IP address, drop the packet
-    u32 *cnt = bpf_map_lookup_elem(&blocked_ips, &iph->saddr);
+    u8 *cnt = bpf_map_lookup_elem(&blocked_ips, &iph->saddr);
     if (cnt){
          __u32 ip = iph->saddr;
 
