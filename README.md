@@ -12,9 +12,9 @@ clang -O2 -g -target bpf -c bpf/xdp_firewall.bpf.c -o bpf/xdp_firewall.o
 ```
 clang++ -std=c++17 userspace.cpp blocklist.cpp -lbpf -o firewall
 ```
-- Run the executable
+- Run the executable - in privileged mode
 ```
-./firewall
+sudo ./firewall
 ```
 
 ## Working
